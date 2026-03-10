@@ -6,7 +6,7 @@
 body {
   margin: 0;
   /* 🌟 核心注入点：引入你的图片（请确保下面文件名的后缀与你真实图片一致） */
-  background-image: url('./assets/bg-cyber.png'); 
+  background-image: url('/bg-cyber.png'); 
   
   /* 视觉魔法：铺满全屏、居中、固定不滚动 */
   background-size: cover;
