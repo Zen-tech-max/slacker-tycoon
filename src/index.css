@@ -5,7 +5,7 @@
 /* 保证全屏不滚动，完美适配暗黑极客主题 */
 body {
   margin: 0;
-  background-color: #030712; /* Tailwind gray-950 */
-  color: #f3f4f6; /* Tailwind gray-100 */
-  overflow: hidden;
+  background-color: #030712; 
+  color: #f3f4f6; 
+  /* 🌟 删除了 overflow: hidden; 让手机端可以自然向下滚动查看商店 */
 }

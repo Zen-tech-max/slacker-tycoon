@@ -35,19 +35,26 @@ export default function App() {
   }, [tick]);
 
   return (
-    <main className="h-screen overflow-hidden bg-slate-950 text-slate-100">
+    // 🌟 修改 1：外层容器。手机端设为列排布 (flex-col) 且允许纵向滚动；
+    // PC端 (md:) 恢复为行排布 (md:flex-row) 且全屏禁止整体滚动 (md:overflow-hidden)。
+    // 使用 min-h-[100dvh] 完美适配手机浏览器的动态地址栏高度。
+    <div className="relative flex flex-col md:flex-row w-full min-h-[100dvh] md:h-screen bg-gray-950 md:overflow-hidden font-sans text-gray-100">
+      
+      {/* 🌟 修改 2：左侧工作台。在手机端给它至少 55% 的屏幕高度，保证玩家有足够的地方点键盘；PC 端则占满剩余宽度 */}
+      <div className="relative flex-1 min-h-[55vh] md:min-h-0">
+        <ClickArea />
+      </div>
+
+      {/* 🌟 修改 3：右侧商店。手机端宽度占满 100% (w-full)，PC端固定 380px 宽。 */}
+      {/* flex-shrink-0 保证商店不会被挤压 */}
+      <div className="w-full md:w-[380px] md:h-full shadow-2xl relative z-10 flex-shrink-0 border-t md:border-t-0 md:border-l border-gray-800">
+        <Shop />
+      </div>
+
+      {/* 全局组件挂载 */}
       <OfflineModal />
       <RandomBug />
 
-      <div className="flex h-full flex-col lg:flex-row">
-        <section className="min-h-0 flex-[2]">
-          <ClickArea />
-        </section>
-
-        <section className="min-h-0 flex-1 border-t border-emerald-500/10 lg:border-l lg:border-t-0">
-          <Shop />
-        </section>
-      </div>
-    </main>
+    </div>
   );
 }
