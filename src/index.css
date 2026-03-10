@@ -5,6 +5,16 @@
 /* 保证全屏不滚动，完美适配暗黑极客主题 */
 body {
   margin: 0;
+  /* 🌟 核心注入点：引入你的图片（请确保下面文件名的后缀与你真实图片一致） */
+  background-image: url('./assets/bg-cyber.png'); 
+  
+  /* 视觉魔法：铺满全屏、居中、固定不滚动 */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  /* 兜底色和全局文字颜色 */
   background-color: #030712; 
   color: #f3f4f6; 
   /* 🌟 删除了 overflow: hidden; 让手机端可以自然向下滚动查看商店 */
